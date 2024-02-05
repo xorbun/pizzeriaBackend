@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -12,5 +13,5 @@ import java.time.LocalDate;
 public class ErrorsPayload
 {
     private String message;
-    private LocalDate timestamp;
+    private LocalDateTime timeStamp;
 }
