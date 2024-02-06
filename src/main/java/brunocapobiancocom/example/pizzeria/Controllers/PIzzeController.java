@@ -24,7 +24,7 @@ public class PIzzeController
         return pizzeService.getPizza(page,size,orderBy);
     }
     @GetMapping("/{idPizza}")
-    public Pizze getPizzaById(UUID idPizza)
+    public Pizze getPizzaById(@PathVariable UUID idPizza)
     {
         return pizzeService.findById(idPizza);
     }
@@ -39,7 +39,7 @@ public class PIzzeController
         return pizzeService.findByIdAndUpdate(idPizza,newPizzaPayload);
     }
     @DeleteMapping("/{idPizza}")
-    public void deletePizza(UUID idPizza)
+    public void deletePizza(@PathVariable UUID idPizza)
     {
         pizzeService.findByIdAndDelete(idPizza);
     }

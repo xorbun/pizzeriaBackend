@@ -24,7 +24,7 @@ public class AntipastiController
         return antipastiService.getAntipasti(page,size,orderBy);
     }
     @GetMapping("/{idAntipasti}")
-    public Antipasti getAntipastiById(UUID idAntipasti)
+    public Antipasti getAntipastiById(@PathVariable UUID idAntipasti)
     {
         return antipastiService.findById(idAntipasti);
     }
@@ -34,12 +34,12 @@ public class AntipastiController
         return antipastiService.save(newAntipastiPayload);
     }
     @PutMapping("/{idAntipasti}")
-    public Antipasti findByIdAndUpdate(@PathVariable UUID idAntipasti,@RequestParam AntipastiDTO newAntipastiPayload)
+    public Antipasti findByIdAndUpdate(@PathVariable UUID idAntipasti,@RequestBody AntipastiDTO newAntipastiPayload)
     {
         return antipastiService.findByIdAndUpdate(idAntipasti,newAntipastiPayload);
     }
     @DeleteMapping("/{idAntipasti}")
-    public void findByIdAndDelete(UUID idAntipasti)
+    public void findByIdAndDelete(@PathVariable UUID idAntipasti)
     {
         antipastiService.findByIdAndDelete(idAntipasti);
     }

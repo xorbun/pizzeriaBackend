@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.UUID;
 
@@ -44,7 +45,7 @@ public class PizzeService
         found.setPrezzo(body.prezzo());
         return pizzeDAO.save(found);
     }
-    public void findByIdAndDelete(UUID idPizza)
+    public void findByIdAndDelete(@PathVariable UUID idPizza)
     {
         Pizze found=this.findById(idPizza);
         pizzeDAO.delete(found);
