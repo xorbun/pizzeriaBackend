@@ -27,7 +27,7 @@ public class PizzeService
     {
         return pizzeDAO.findById(idPizza).orElseThrow(()->new NotFoundException(idPizza));
     }
-    public Pizze save(PizzeDTO body,UUID idPizza)
+    public Pizze save(PizzeDTO body)
     {
         Pizze newPizza= new Pizze();
         newPizza.setTipo(body.tipo());

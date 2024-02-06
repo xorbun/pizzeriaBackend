@@ -29,7 +29,7 @@ public class AntipastiService
     {
         return antipastiDAO.findById(idAntipasti).orElseThrow(()->new NotFoundException(idAntipasti));
     }
-    public Antipasti save(AntipastiDTO body, UUID idAntipasti)
+    public Antipasti save(AntipastiDTO body)
     {
         Antipasti newAntipasti=new Antipasti();
         newAntipasti.setTipo(body.tipo());
