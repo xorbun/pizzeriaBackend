@@ -2,7 +2,6 @@ package brunocapobiancocom.example.pizzeria.Controllers;
 
 import brunocapobiancocom.example.pizzeria.Entities.Pizze;
 import brunocapobiancocom.example.pizzeria.Payloads.PizzeDTO;
-import brunocapobiancocom.example.pizzeria.Repositories.PizzeDAO;
 import brunocapobiancocom.example.pizzeria.Services.PizzeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

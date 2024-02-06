@@ -4,6 +4,7 @@ import brunocapobiancocom.example.pizzeria.Entities.Pizze;
 import brunocapobiancocom.example.pizzeria.Exceptions.NotFoundException;
 import brunocapobiancocom.example.pizzeria.Payloads.PizzeDTO;
 import brunocapobiancocom.example.pizzeria.Repositories.PizzeDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @Service
 public class PizzeService
 {
+    @Autowired
     private PizzeDAO pizzeDAO;
 
     public Page<Pizze> getPizza(int page,int size,String orderBy)
