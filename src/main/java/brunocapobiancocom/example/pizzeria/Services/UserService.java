@@ -33,8 +33,7 @@ public class UserService
     }
     public  Users findById(UUID idUser)
     {
-        Users found=this.findById(idUser);
-        return (found);
+       return usersDAO.findById(idUser).orElseThrow(()->new NotFoundException(idUser));
     }
     public Users findByIdAndUpdate(UUID idUser, UsersDTO body)
     {

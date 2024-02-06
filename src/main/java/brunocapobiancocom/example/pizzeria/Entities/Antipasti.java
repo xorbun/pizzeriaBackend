@@ -21,5 +21,6 @@ public class Antipasti
     @GeneratedValue
     private UUID idAntipasti;
     private String tipo;
+    private String image;
     private double prezzo;
 }

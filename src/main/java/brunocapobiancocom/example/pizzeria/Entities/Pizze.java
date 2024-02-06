@@ -21,5 +21,6 @@ public class Pizze
     @GeneratedValue
     private UUID idPizza;
     private String tipo;
+    private String image;
     private double prezzo;
 }
