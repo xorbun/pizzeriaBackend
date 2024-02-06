@@ -14,7 +14,7 @@ public class JWTTools
 {
     @Value("${spring.jwt.secret}")
     private String secret;
-    private String createToken(Users user)
+    public String createToken(Users user)
     {
         return Jwts.builder().subject(String.valueOf(user.getIdUser()))
                 .issuedAt(new Date(System.currentTimeMillis()))

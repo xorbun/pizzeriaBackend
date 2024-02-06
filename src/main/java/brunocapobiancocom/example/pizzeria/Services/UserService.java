@@ -1,6 +1,7 @@
 package brunocapobiancocom.example.pizzeria.Services;
 
 import brunocapobiancocom.example.pizzeria.Entities.Users;
+import brunocapobiancocom.example.pizzeria.Exceptions.NotFoundException;
 import brunocapobiancocom.example.pizzeria.Payloads.UsersDTO;
 import brunocapobiancocom.example.pizzeria.Repositories.UsersDAO;
 import brunocapobiancocom.example.pizzeria.Security.JWTTools;
@@ -48,5 +49,9 @@ public class UserService
     {
         Users found=this.findById(idUser);
         usersDAO.delete(found);
+    }
+    public Users findByEmail(String email)
+    {
+        return usersDAO.findByEmail(email).orElseThrow(()->new NotFoundException(email));
     }
 }
