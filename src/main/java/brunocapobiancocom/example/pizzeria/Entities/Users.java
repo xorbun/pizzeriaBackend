@@ -1,14 +1,17 @@
 package brunocapobiancocom.example.pizzeria.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -16,7 +19,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
-
+@JsonIgnoreProperties({"password","authorities","AccountNonExpired","enabled", "accountNonLocked","credentialsNonExpired", "username"})
 public class Users implements UserDetails
 {
     @Id
@@ -32,7 +35,7 @@ public class Users implements UserDetails
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return List.of(new SimpleGrantedAuthority(this.tipo.name()));
     }
 
     @Override
