@@ -1,12 +1,14 @@
 package brunocapobiancocom.example.pizzeria.Controllers;
 
 import brunocapobiancocom.example.pizzeria.Entities.Prenotazione;
+import brunocapobiancocom.example.pizzeria.Entities.Users;
 import brunocapobiancocom.example.pizzeria.Payloads.PrenotazioneDTO;
 import brunocapobiancocom.example.pizzeria.Services.PrenotazioneService;
 import brunocapobiancocom.example.pizzeria.Services.UserService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -31,9 +33,9 @@ public class PrenotazioneController
         return prenotazioneService.findById(idPrenotazioni);
     }
     @PostMapping
-    public Prenotazione addPrenotazione(@RequestParam UUID id,@RequestBody PrenotazioneDTO newPrenotazionePayload)
+    public Prenotazione addPrenotazione(@AuthenticationPrincipal Users currentUser, @RequestBody PrenotazioneDTO newPrenotazionePayload)
     {
-        return prenotazioneService.addPrenotazione(id,newPrenotazionePayload);
+        return prenotazioneService.addPrenotazione(currentUser.getIdUser(),newPrenotazionePayload);
     }
     @PutMapping("/{idPrenotazioni}")
     public Prenotazione findPrenotazioneByIdAndUpdate(@PathVariable UUID idPrenotazioni,@RequestBody PrenotazioneDTO modifyPrenotazionePayload)
