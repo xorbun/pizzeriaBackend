@@ -37,9 +37,9 @@ public class MenuController
     }
     @PutMapping("/{idMenu}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public Menu findByIdAndUpdate(@PathVariable UUID idMenu,@RequestBody MenuDTO newMenuPayload)
+    public Menu findByIdAndUpdate(@PathVariable UUID idMenu,@RequestBody MenuDTO modifyMenuPayload)
     {
-        return menuService.findByIdAndUpdate(idMenu,newMenuPayload);
+        return menuService.findByIdAndUpdate(idMenu,modifyMenuPayload);
     }
     @DeleteMapping("/{idMenu}")
     @PreAuthorize("hasAuthority('ADMIN')")

@@ -33,9 +33,9 @@ public class UsersController
     }
     @PutMapping("/{idUser}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public Users findByIdAndUpdate(@PathVariable UUID idUser, @RequestBody UsersDTO newUserPayload)
+    public Users findByIdAndUpdate(@PathVariable UUID idUser, @RequestBody UsersDTO modifyUserPayload)
     {
-        return userService.findByIdAndUpdate(idUser,newUserPayload);
+        return userService.findByIdAndUpdate(idUser,modifyUserPayload);
     }
     @DeleteMapping("/{idUser}")
     @PreAuthorize("hasAuthority('ADMIN')")
