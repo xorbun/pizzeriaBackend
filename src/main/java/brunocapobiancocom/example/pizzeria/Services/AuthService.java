@@ -1,6 +1,6 @@
 package brunocapobiancocom.example.pizzeria.Services;
 
-import brunocapobiancocom.example.pizzeria.Entities.TIPO;
+import brunocapobiancocom.example.pizzeria.Entities.ROLE;
 import brunocapobiancocom.example.pizzeria.Entities.Users;
 import brunocapobiancocom.example.pizzeria.Exceptions.BadRequestException;
 import brunocapobiancocom.example.pizzeria.Exceptions.UnauthorizedException;
@@ -48,7 +48,7 @@ public class AuthService
         newUser.setNickname(body.nickname());
         newUser.setEmail(body.email());
         newUser.setPassword(bcrypt.encode(body.password()));
-        newUser.setTipo(TIPO.USER);
+        newUser.setRole(ROLE.USER);
         return usersDAO.save(newUser);
     }
 }

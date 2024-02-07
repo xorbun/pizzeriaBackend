@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "menu")
 @Getter
@@ -14,11 +16,11 @@ public class Menu
 {
     @Id
     @GeneratedValue
-    private String idMenu;
-    @OneToOne
-    @JoinColumn(name = "idPizza",nullable = false)
-    private Pizze pizza;
-    @OneToOne
-    @JoinColumn(name="idAntipasti",nullable = false)
-    private Antipasti antipasti;
+    private UUID idMenu;
+    private String descrizione;
+    private String image;
+    private double prezzo;
+    @Enumerated(EnumType.STRING)
+    private TYPE type;
 }
+

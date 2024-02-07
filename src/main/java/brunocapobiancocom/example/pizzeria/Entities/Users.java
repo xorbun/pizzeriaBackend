@@ -3,7 +3,6 @@ package brunocapobiancocom.example.pizzeria.Entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
@@ -31,11 +30,11 @@ public class Users implements UserDetails
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
-    private TIPO tipo;
+    private ROLE role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(this.tipo.name()));
+        return List.of(new SimpleGrantedAuthority(this.role.name()));
     }
 
     @Override

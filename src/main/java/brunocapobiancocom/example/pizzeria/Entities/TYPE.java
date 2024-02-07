@@ -1,6 +1,6 @@
 package brunocapobiancocom.example.pizzeria.Entities;
 
-public enum TIPO
+public enum TYPE
 {
-    USER, ADMIN
+    PIZZA,ANTIPASTI,BEVANDE
 }
