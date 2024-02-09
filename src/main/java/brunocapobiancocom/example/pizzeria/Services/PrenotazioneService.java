@@ -38,6 +38,7 @@ public class PrenotazioneService
         newPrenotazione.setUser(usersDAO.findById(idUser).orElseThrow(()->new NotFoundException(idUser)));
         newPrenotazione.setData(body.data());
         newPrenotazione.setOrario(body.orario());
+        newPrenotazione.setNumeroPersone(body.numeroPersone());
         return prenotazioneDAO.save(newPrenotazione);
     }
     public Prenotazione findByIdAndUpdate(UUID idPrenotazione,PrenotazioneDTO body)
@@ -45,6 +46,7 @@ public class PrenotazioneService
         Prenotazione found=this.findById(idPrenotazione);
         found.setData(body.data());
         found.setOrario(body.orario());
+        found.setNumeroPersone(body.numeroPersone());
         return prenotazioneDAO.save(found);
     }
     public void findByIdAndDelete(UUID idPrenotazione)

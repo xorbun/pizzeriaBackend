@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,6 +26,6 @@ public class Delivery
     @ManyToOne
     @JoinColumn(name="idMenu",nullable = false)
     private Menu menu;
-    private int quantità;
-    private double orario;
+    private int quantita;
+    private LocalTime orario;
 }

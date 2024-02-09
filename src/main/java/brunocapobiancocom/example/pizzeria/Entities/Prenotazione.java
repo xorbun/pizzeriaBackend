@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.UUID;
 
 @Entity
@@ -22,5 +23,6 @@ public class Prenotazione
     @JoinColumn(name = "idUser",nullable = false)
     private Users user;
     private LocalDate data;
-    private double orario;
+    private LocalTime orario;
+    private double numeroPersone;
 }
