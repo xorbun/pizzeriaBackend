@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,4 +29,5 @@ public class Delivery
     private Menu menu;
     private int quantita;
     private LocalTime orario;
+    private LocalDate dataDelivery;
 }

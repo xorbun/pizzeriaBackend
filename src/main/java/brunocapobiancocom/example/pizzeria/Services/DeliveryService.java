@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -44,6 +45,7 @@ public class DeliveryService
         newdelivery.setMenu(menuDAO.findById(idMenu).orElseThrow(()->new NotFoundException(idMenu)));
         newdelivery.setQuantita(body.quantita());
         newdelivery.setOrario(body.orario());
+        newdelivery.setDataDelivery(LocalDate.now());
         return deliveryDAO.save(newdelivery);
     }
     public Delivery FindDeliveryByIdAndUpdate(UUID idDelivery,UUID idMenu,DeliveryDTO body)
@@ -63,7 +65,7 @@ public class DeliveryService
     {
         if(size>=100)size=100;
         Pageable pageable=PageRequest.of(page,size,Sort.by(orderBy));
-        return deliveryDAO.findByUserIdUser(pageable,idUser);
+        return deliveryDAO.findByUserIdUserAndDataDelivery(pageable,idUser,LocalDate.now());
     }
 
 
