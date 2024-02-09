@@ -6,6 +6,7 @@ import brunocapobiancocom.example.pizzeria.Payloads.DeliveryDTO;
 import brunocapobiancocom.example.pizzeria.Services.DeliveryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,11 +47,20 @@ public class DeliveryController
         deliveryService.findDeliveryByIdAndDelete(idDelivery);
     }
     @GetMapping("/id")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Page<Delivery> findDeliveryByUser(@RequestParam (defaultValue = "0")int page,
                                              @RequestParam(defaultValue = "10")int size,
                                              @RequestParam(defaultValue = "orario")String orderBy,
                                              @RequestParam UUID idUser)
     {
         return deliveryService.findDeliveryByUser(page,size,orderBy,idUser);
+    }
+    @GetMapping("/me")
+    public Page<Delivery> findDeliveryByCurrentUser(@RequestParam (defaultValue = "0")int page,
+                                                  @RequestParam(defaultValue = "10")int size,
+                                                  @RequestParam(defaultValue = "orario")String orderBy,
+                                                  @AuthenticationPrincipal Users currentUser)
+    {
+        return deliveryService.findDeliveryByUser(page,size,orderBy,currentUser.getIdUser());
     }
 }
