@@ -28,6 +28,8 @@ public class Delivery
     @JoinColumn(name="idMenu",nullable = false)
     private Menu menu;
     private int quantita;
+    private double totale;
     private LocalTime orario;
     private LocalDate dataDelivery;
+
 }

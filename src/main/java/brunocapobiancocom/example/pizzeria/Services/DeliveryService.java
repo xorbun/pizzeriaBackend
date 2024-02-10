@@ -1,6 +1,7 @@
 package brunocapobiancocom.example.pizzeria.Services;
 
 import brunocapobiancocom.example.pizzeria.Entities.Delivery;
+import brunocapobiancocom.example.pizzeria.Entities.Menu;
 import brunocapobiancocom.example.pizzeria.Entities.Users;
 import brunocapobiancocom.example.pizzeria.Exceptions.NotFoundException;
 import brunocapobiancocom.example.pizzeria.Payloads.DeliveryDTO;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -44,6 +46,7 @@ public class DeliveryService
         newdelivery.setUser(usersDAO.findById(idUser).orElseThrow(()->new NotFoundException(idUser)));
         newdelivery.setMenu(menuDAO.findById(idMenu).orElseThrow(()->new NotFoundException(idMenu)));
         newdelivery.setQuantita(body.quantita());
+        newdelivery.setTotale(body.quantita()*newdelivery.getMenu().getPrezzo());
         newdelivery.setOrario(body.orario());
         newdelivery.setDataDelivery(LocalDate.now());
         return deliveryDAO.save(newdelivery);

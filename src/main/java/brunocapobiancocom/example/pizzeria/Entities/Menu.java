@@ -26,5 +26,6 @@ public class Menu
     @NonNull
     @Enumerated(EnumType.STRING)
     private TYPE type;
+
 }
 
