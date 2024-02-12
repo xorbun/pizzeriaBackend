@@ -7,6 +7,7 @@ import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -24,6 +25,11 @@ public class UsersController
                                 @RequestParam(defaultValue = "nickname")String orderBy)
     {
         return userService.Getusers(page,size,orderBy);
+    }
+    @GetMapping("/me")
+    public Users getLoginData(@AuthenticationPrincipal Users user)
+    {
+        return userService.findById(user.getIdUser());
     }
     @GetMapping("/{idUser}")
     @PreAuthorize("hasAuthority('ADMIN')")
