@@ -1,5 +1,6 @@
 package brunocapobiancocom.example.pizzeria.Controllers;
 
+import brunocapobiancocom.example.pizzeria.Entities.Menu;
 import brunocapobiancocom.example.pizzeria.Entities.Users;
 import brunocapobiancocom.example.pizzeria.Exceptions.BadRequestException;
 import brunocapobiancocom.example.pizzeria.Payloads.UserLoginDTO;
@@ -7,7 +8,9 @@ import brunocapobiancocom.example.pizzeria.Payloads.UserLoginResponseDTO;
 import brunocapobiancocom.example.pizzeria.Payloads.UsersDTO;
 import brunocapobiancocom.example.pizzeria.Payloads.UsersResponseDTO;
 import brunocapobiancocom.example.pizzeria.Services.AuthService;
+import brunocapobiancocom.example.pizzeria.Services.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +22,7 @@ public class AuthController
 {
     @Autowired
     private AuthService authService;
+
 
     @PostMapping("/login")
     public UserLoginResponseDTO login(@RequestBody UserLoginDTO body)

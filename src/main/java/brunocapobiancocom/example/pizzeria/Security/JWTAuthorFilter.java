@@ -17,6 +17,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 @Component
 public class JWTAuthorFilter extends OncePerRequestFilter
@@ -25,6 +26,7 @@ public class JWTAuthorFilter extends OncePerRequestFilter
     private JWTTools jwtTools;
     @Autowired
     private UserService userService;
+    private static final AntPathMatcher pathMatcher = new AntPathMatcher();
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -50,8 +52,11 @@ public class JWTAuthorFilter extends OncePerRequestFilter
     }
 
     @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException
-    {
-        return new AntPathMatcher().match("/auth/**",request.getServletPath());
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String[] allowedPaths = {"/auth/**", "/menu", };
+
+        return Stream.of(allowedPaths)
+                .anyMatch(path -> pathMatcher.match(path, request.getServletPath()));
     }
 }
+
