@@ -9,5 +9,5 @@ import java.util.UUID;
 @Repository
 public interface PrenotazioneDAO extends JpaRepository<Prenotazione, UUID>
 {
-
+    
 }
