@@ -31,6 +31,11 @@ public class UsersController
     {
         return userService.findById(user.getIdUser());
     }
+    @PutMapping("/me/modify")
+    public Users modifyUser(@AuthenticationPrincipal Users user,@RequestBody UsersDTO modifyUserPayload)
+    {
+        return userService.findByIdAndUpdate(user.getIdUser(),modifyUserPayload);
+    }
     @GetMapping("/{idUser}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public Users getUserById(@PathVariable UUID idUser)

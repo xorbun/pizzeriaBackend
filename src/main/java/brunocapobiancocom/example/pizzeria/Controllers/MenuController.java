@@ -19,7 +19,7 @@ public class MenuController
 
     @GetMapping
     public Page<Menu> getAllFoods(@RequestParam(defaultValue = "0")int page,
-                                  @RequestParam(defaultValue = "10")int size,
+                                  @RequestParam(defaultValue = "40")int size,
                                   @RequestParam(defaultValue = "descrizione") String orderBy)
     {
         return menuService.getMenu(page,size,orderBy);
@@ -55,5 +55,10 @@ public class MenuController
     {
 
         return menuService.findByType(page,size,orderBy,type);
+    }
+    @GetMapping("/cerca")
+    public Menu findByNome(@RequestParam String nome)
+    {
+        return menuService.findByName(nome);
     }
 }

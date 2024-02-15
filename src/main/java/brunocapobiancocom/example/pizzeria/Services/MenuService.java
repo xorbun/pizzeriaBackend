@@ -60,5 +60,9 @@ public class MenuService
         Pageable pageable=PageRequest.of(page,size,Sort.by(orderBy));
         return menuDAO.findByType(pageable,TYPE.valueOf(type));
     }
+    public Menu findByName(String nome)
+    {
+        return menuDAO.findByDescrizione(nome).orElseThrow(()->new NotFoundException(nome));
+    }
 
 }

@@ -17,4 +17,5 @@ public interface MenuDAO extends JpaRepository<Menu, UUID>
 {
    @Query("SELECT m FROM Menu m WHERE m.type=:type")
    Page<Menu> findByType(Pageable pageable, @Param("type") TYPE type );
+   Optional<Menu> findByDescrizione(String descrizione);
 }
