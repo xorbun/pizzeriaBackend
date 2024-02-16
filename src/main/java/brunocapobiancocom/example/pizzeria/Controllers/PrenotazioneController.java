@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -46,5 +46,10 @@ public class PrenotazioneController
     public void findPrenotazioneByIdAndDelete(@PathVariable UUID idPrenotazioni)
     {
         prenotazioneService.findByIdAndDelete(idPrenotazioni);
+    }
+    @GetMapping("/me")
+    public List<Prenotazione> findByUser(@AuthenticationPrincipal Users user)
+    {
+        return prenotazioneService.findByUser(user.getIdUser());
     }
 }
