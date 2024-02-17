@@ -16,6 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -47,7 +48,10 @@ public class DeliveryService
         newdelivery.setMenu(menuDAO.findById(idMenu).orElseThrow(()->new NotFoundException(idMenu)));
         newdelivery.setQuantita(body.quantita());
         newdelivery.setTotale(body.quantita()*newdelivery.getMenu().getPrezzo());
-        newdelivery.setOrario(body.orario());
+        LocalTime oraAttuale=LocalTime.now();
+        int ora=oraAttuale.getHour();
+        int minuti=oraAttuale.getMinute();
+        newdelivery.setOrario(LocalTime.of(ora,minuti));
         newdelivery.setDataDelivery(LocalDate.now());
         return deliveryDAO.save(newdelivery);
     }
