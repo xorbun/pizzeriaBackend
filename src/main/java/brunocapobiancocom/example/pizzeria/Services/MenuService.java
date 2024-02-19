@@ -39,6 +39,7 @@ public class MenuService
         newMenu.setImage(body.image());
         newMenu.setDescrizione(body.descrizione());
         newMenu.setType(TYPE.valueOf(body.type()));
+        newMenu.setIngredienti(body.ingredienti());
         newMenu.setPrezzo(body.prezzo());
         return menuDAO.save(newMenu);
     }

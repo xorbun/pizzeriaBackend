@@ -24,6 +24,8 @@ public class Menu
     @NonNull
     private double prezzo;
     @NonNull
+    private String ingredienti;
+    @NonNull
     @Enumerated(EnumType.STRING)
     private TYPE type;
 
