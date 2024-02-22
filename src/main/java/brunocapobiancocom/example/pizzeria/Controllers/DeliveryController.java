@@ -22,7 +22,7 @@ public class DeliveryController
 
     @GetMapping
     public Page<Delivery> getAllDelivery(@RequestParam(defaultValue = "0")int page,
-                                         @RequestParam(defaultValue = "10")int size,
+                                         @RequestParam(defaultValue = "50")int size,
                                          @RequestParam(defaultValue = "orario")String orderBy)
     {
         return deliveryService.getDelivery(page,size,orderBy);
@@ -63,5 +63,14 @@ public class DeliveryController
                                                   @AuthenticationPrincipal Users currentUser)
     {
         return deliveryService.findDeliveryByUser(page,size,orderBy,currentUser.getIdUser());
+    }
+    @GetMapping("/admin/{idUser}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public Page<Delivery> findDeliveryByCurrentUserAsAdmin(@RequestParam (defaultValue = "0")int page,
+                                                           @RequestParam(defaultValue = "10")int size,
+                                                           @RequestParam(defaultValue = "orario")String orderBy,
+                                                           @PathVariable UUID idUser)
+    {
+        return deliveryService.findDeliveryByUser(page,size,orderBy,idUser);
     }
 }
