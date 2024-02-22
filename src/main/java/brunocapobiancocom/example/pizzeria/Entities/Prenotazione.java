@@ -2,6 +2,7 @@ package brunocapobiancocom.example.pizzeria.Entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -22,7 +23,10 @@ public class Prenotazione
     @ManyToOne
     @JoinColumn(name = "idUser",nullable = false)
     private Users user;
+    @NonNull
     private LocalDate data;
+    @NonNull
     private LocalTime orario;
+    @NonNull
     private double numeroPersone;
 }

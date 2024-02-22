@@ -54,7 +54,7 @@ public class MenuRunner implements CommandLineRunner
         Menu pizza9=new Menu("boscaiola","https://th.bing.com/th/id/OIP.Nn_MkCmX67NL8YbeVErUPQHaE8?rs=1&pid=ImgDetMain",8.00,"mozzarella, funghi,salsiccia,pepe nero",TYPE.PIZZA);
         Menu pizza10=new Menu("prosciutto e funghi","https://www.newcroco.ro/image/cache/catalog/Prosciutto%20E%20Funghi%20(1600)-1000x700.jpg",7.50,"mozzarella, prosciutto cotto, funghi",TYPE.PIZZA);
         Menu antipasto1=new Menu("patatine","https://th.bing.com/th/id/R.38e10e6073979527382115d9b5f3d56f?rik=9ROoADvujPvDKA&pid=ImgRaw&r=0",1.50,"patate dolci fritte",TYPE.ANTIPASTI);
-        Menu antipasto2=new Menu("arancini","https://th.bing.com/th/id/OIP.ZcnTQTCt3PWscoAdr5nYsAHaE8?rs=1&pid=ImgDetMain",1.50,"riso, pan grattato,sugo",TYPE.ANTIPASTI);
+        Menu antipasto2=new Menu("arancini","https://th.bing.com/th/id/OIP.ZcnTQTCt3PWscoAdr5nYsAHaE8?rs=1&pid=ImgDetMain",2.00,"riso, pan grattato,sugo",TYPE.ANTIPASTI);
         Menu antipasto3=new Menu("montanara","https://www.agriturismolabrezza.it/wp-content/uploads/2020/05/antipasto.jpg",7.50,"affettati vari, formaggi vari",TYPE.ANTIPASTI);
         Menu antipasto4=new Menu("wurstell in camicia","https://th.bing.com/th/id/R.dc99bc6bacf05efec67a740030c3130e?rik=Fz%2fMOd6lUAACqg&pid=ImgRaw&r=0",2.50,"wurstell",TYPE.ANTIPASTI);
         Menu antipasto5=new Menu("olive all'ascolana","https://cdn.ilclubdellericette.it/wp-content/uploads/2020/02/olive-all-ascolana.jpg",2.50,"olive verdi,finocchietto,pangrattato",TYPE.ANTIPASTI);
@@ -64,7 +64,7 @@ public class MenuRunner implements CommandLineRunner
         Menu antipasto9=new Menu("mozzarelline fritte","https://cdn.ilclubdellericette.it/wp-content/uploads/2020/02/mozzarelline-fritte.jpg",3.50,"mozzarella, pangrattato",TYPE.ANTIPASTI);
         Menu antipasto10=new Menu("crocchette","https://www.alimentipedia.it/files/styles/main_image/public/images/crocchette-patate.jpg?itok=9zjgwNcU",1.50,"patate dolci, pangrattato",TYPE.ANTIPASTI);
         Menu bevanda1=new Menu("coca cola","https://th.bing.com/th/id/OIP.8qV2gQfYfyYsN5LvIfNnLwHaFj?rs=1&pid=ImgDetMain",2.50,"bevanta analcolica",TYPE.BEVANDE);
-        Menu bevanda2= new Menu("birra","https://wallpapercave.com/wp/wp3087049.jpg",2.50,"bevanda alcolica",TYPE.BEVANDE);
+        Menu bevanda2= new Menu("birra","https://wallpapercave.com/wp/wp3087049.jpg",4.00,"bevanda alcolica",TYPE.BEVANDE);
         Menu bevanda3=new Menu("acqua","https://th.bing.com/th/id/R.427a1740aa5f2534aa0336e733ea11fa?rik=hyvns%2fy%2bR0AHxA&pid=ImgRaw&r=0&sres=1&sresct=1",1.50,"ok, non lo so",TYPE.BEVANDE);
         Menu bevanda4=new Menu("fanta","https://th.bing.com/th/id/OIP.0g8thkPMcAfVQgOVptSrBQHaEo?rs=1&pid=ImgDetMain",2.50,"bevanda analcolica",TYPE.BEVANDE);
         Menu bevanda5=new Menu("estathe","https://assets.website-files.com/57741c10c8d072ad1d61520a/5cd93f8dc4df33300705f06a_Immagine2.jpg",2.50,"bevanda analcolica",TYPE.BEVANDE);

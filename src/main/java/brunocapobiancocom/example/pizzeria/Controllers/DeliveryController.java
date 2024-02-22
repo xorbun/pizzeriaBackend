@@ -42,7 +42,7 @@ public class DeliveryController
     {
         return deliveryService.FindDeliveryByIdAndUpdate(idDelivery,idMenu,modifyDeliveryPayload);
     }
-    @DeleteMapping
+    @DeleteMapping("/{idDelivery}")
     public void findDeliveryByIdAndDelete(@PathVariable UUID idDelivery)
     {
         deliveryService.findDeliveryByIdAndDelete(idDelivery);
