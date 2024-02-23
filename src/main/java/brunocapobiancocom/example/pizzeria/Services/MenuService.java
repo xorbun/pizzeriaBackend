@@ -45,7 +45,7 @@ public class MenuService
     public Menu save(MenuDTO body)
     {
         Menu newMenu=new Menu();
-        newMenu.setImage(body.image());
+        newMenu.setImage("inserisci immagine");
         newMenu.setDescrizione(body.descrizione());
         newMenu.setType(TYPE.valueOf(body.type()));
         newMenu.setIngredienti(body.ingredienti());

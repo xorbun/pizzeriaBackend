@@ -39,7 +39,7 @@ public class MenuController
     }
 
 
-    @PostMapping("/upload")
+    @PatchMapping("/upload/{idMenu}")
     public String uploadImage(@RequestParam("image")MultipartFile file, @PathVariable UUID idMenu) throws IOException
     {
         return menuService.uploadPicture(file,idMenu);
