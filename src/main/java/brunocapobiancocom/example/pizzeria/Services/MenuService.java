@@ -55,7 +55,9 @@ public class MenuService
     public Menu findByIdAndUpdate(UUID idMenu,MenuDTO body)
     {
         Menu found=this.findById(idMenu);
-
+        found.setDescrizione(body.descrizione());
+        found.setIngredienti(body.ingredienti());
+        found.setType(TYPE.valueOf(body.type()));
         found.setPrezzo(body.prezzo());
         return menuDAO.save(found);
     }
