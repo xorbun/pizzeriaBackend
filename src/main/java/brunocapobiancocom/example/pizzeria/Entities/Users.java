@@ -38,6 +38,7 @@ public class Users implements UserDetails
     @NonNull
     private ROLE role;
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(this.role.name()));

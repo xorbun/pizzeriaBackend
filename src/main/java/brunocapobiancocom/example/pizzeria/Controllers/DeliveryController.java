@@ -73,4 +73,11 @@ public class DeliveryController
     {
         return deliveryService.findDeliveryByUser(page,size,orderBy,idUser);
     }
+    @GetMapping("/allorder")
+    public Page<Delivery>countOrderByUser(@RequestParam(defaultValue = "0")int page,
+                                          @RequestParam(defaultValue = "50")int size,
+                                          @RequestParam(defaultValue = "user")String orderBy)
+    {
+        return deliveryService.countOrderByUser(page,size,orderBy);
+    }
 }
