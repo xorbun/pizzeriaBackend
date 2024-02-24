@@ -3,6 +3,7 @@ package brunocapobiancocom.example.pizzeria.Entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 import java.util.UUID;
 
 @Entity
@@ -28,6 +29,8 @@ public class Menu
     @NonNull
     @Enumerated(EnumType.STRING)
     private TYPE type;
+
+
 
 }
 
