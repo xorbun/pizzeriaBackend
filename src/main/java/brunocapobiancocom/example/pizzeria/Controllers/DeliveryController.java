@@ -47,12 +47,12 @@ public class DeliveryController
     {
         deliveryService.findDeliveryByIdAndDelete(idDelivery);
     }
-    @GetMapping("/id")
+    @GetMapping("/id/{idUser}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public Page<Delivery> findDeliveryByUser(@RequestParam (defaultValue = "0")int page,
                                              @RequestParam(defaultValue = "10")int size,
                                              @RequestParam(defaultValue = "orario")String orderBy,
-                                             @RequestParam UUID idUser)
+                                             @PathVariable UUID idUser)
     {
         return deliveryService.findDeliveryByUser(page,size,orderBy,idUser);
     }
