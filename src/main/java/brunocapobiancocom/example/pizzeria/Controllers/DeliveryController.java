@@ -80,4 +80,10 @@ public class DeliveryController
     {
         return deliveryService.countOrderByUser(page,size,orderBy);
     }
+    @PatchMapping("/updateOrder/{idUser}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<Delivery> UpdateStatus(@PathVariable UUID idUser)
+    {
+        return deliveryService.UpdateStato(idUser);
+    }
 }

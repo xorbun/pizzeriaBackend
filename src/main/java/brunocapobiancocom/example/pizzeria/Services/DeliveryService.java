@@ -82,5 +82,15 @@ public class DeliveryService
         Pageable pageable=PageRequest.of(page,size,Sort.by(orderBy));
         return deliveryDAO.countOrderByUserIdUserAndFindByDataDelivery(pageable,LocalDate.now());
     }
+    public List<Delivery> UpdateStato(UUID idUser)
+    {
+        List<Delivery> deliveryList=deliveryDAO.findByUserIdUserAndDataDelivery(idUser,LocalDate.now());
+        for(Delivery found:deliveryList)
+        {
+            found.setStato(STATO.IN_CONSEGNA);
+            deliveryDAO.save(found);
+        }
+        return deliveryList;
+    }
 
 }

@@ -17,6 +17,8 @@ import java.util.UUID;
 public interface DeliveryDAO extends JpaRepository<Delivery, UUID>
 {
     Page<Delivery> findByUserIdUserAndDataDelivery(Pageable pageable, UUID idUser, LocalDate date);
+
+    List<Delivery>findByUserIdUserAndDataDelivery(UUID idUser,LocalDate date);
     @Query("SELECT o.user, COUNT(o) FROM Delivery o WHERE o.dataDelivery = :dataDelivery  GROUP BY o.user")
     Page<Delivery> countOrderByUserIdUserAndFindByDataDelivery(Pageable pageable,LocalDate dataDelivery);
 
