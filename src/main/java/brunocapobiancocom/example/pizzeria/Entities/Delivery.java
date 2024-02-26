@@ -30,6 +30,7 @@ public class Delivery
     private int quantita;
     private double totale;
     private LocalTime orario;
+
     private LocalDate dataDelivery;
 
 }

@@ -78,7 +78,7 @@ public class DeliveryService
     public Page<Delivery> countOrderByUser(int page,int size, String orderBy)
     {
         Pageable pageable=PageRequest.of(page,size,Sort.by(orderBy));
-        return deliveryDAO.countOrderByuser(pageable);
+        return deliveryDAO.countOrderByUserIdUserAndFindByDataDelivery(pageable,LocalDate.now());
     }
 
 }
