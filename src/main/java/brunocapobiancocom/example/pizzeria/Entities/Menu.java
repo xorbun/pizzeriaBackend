@@ -30,6 +30,8 @@ public class Menu
     @NonNull
     @Enumerated(EnumType.STRING)
     private TYPE type;
+    @OneToMany(mappedBy = "menu")
+    private List<Delivery> delivery;
 
 
 

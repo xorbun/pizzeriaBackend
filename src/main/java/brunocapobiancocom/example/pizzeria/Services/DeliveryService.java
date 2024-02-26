@@ -55,7 +55,14 @@ public class DeliveryService
             totale+=found.getPrezzo();
         }
         newdelivery.setMenuList(menuList);
-        newdelivery.setOrario(LocalTime.now());
+        newdelivery.setTotale(totale);
+        newdelivery.setStato(STATO.INVIATO);
+        LocalTime oraAttuale=LocalTime.now();
+        int ora=oraAttuale.getHour();
+        int minuti=oraAttuale.getMinute();
+        newdelivery.setOrario(LocalTime.of(ora,minuti));
+        newdelivery.setDataDelivery(LocalDate.now());
+        return deliveryDAO.save(newdelivery);
     }
    /* public Delivery FindDeliveryByIdAndUpdate(UUID idDelivery,UUID idMenu,DeliveryDTO body)
     {

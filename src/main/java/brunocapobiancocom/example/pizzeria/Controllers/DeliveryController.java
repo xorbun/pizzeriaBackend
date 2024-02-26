@@ -35,13 +35,13 @@ public class DeliveryController
     @PostMapping
     public Delivery addDelivery(@AuthenticationPrincipal Users currentUser, @RequestParam UUID idMenu, @RequestBody DeliveryDTO newDeliveryPayload)
     {
-        return deliveryService.addDelivery(currentUser.getIdUser(),idMenu,newDeliveryPayload);
+        return deliveryService.addDelivery(currentUser.getIdUser(),newDeliveryPayload);
     }
-    @PutMapping("/{idDelivery}")
+   /* @PutMapping("/{idDelivery}")
     public Delivery findDeliveryByIdAndUpdate(@PathVariable UUID idDelivery,@RequestParam UUID idMenu,@RequestBody DeliveryDTO modifyDeliveryPayload)
     {
         return deliveryService.FindDeliveryByIdAndUpdate(idDelivery,idMenu,modifyDeliveryPayload);
-    }
+    }*/
     @DeleteMapping("/{idDelivery}")
     public void findDeliveryByIdAndDelete(@PathVariable UUID idDelivery)
     {
