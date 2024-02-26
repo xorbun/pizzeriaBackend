@@ -30,7 +30,8 @@ public class Delivery
     private int quantita;
     private double totale;
     private LocalTime orario;
-
+    @Enumerated(EnumType.STRING)
+    private STATO stato;
     private LocalDate dataDelivery;
 
 }

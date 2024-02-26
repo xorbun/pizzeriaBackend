@@ -2,6 +2,7 @@ package brunocapobiancocom.example.pizzeria.Services;
 
 import brunocapobiancocom.example.pizzeria.Entities.Delivery;
 import brunocapobiancocom.example.pizzeria.Entities.Menu;
+import brunocapobiancocom.example.pizzeria.Entities.STATO;
 import brunocapobiancocom.example.pizzeria.Entities.Users;
 import brunocapobiancocom.example.pizzeria.Exceptions.NotFoundException;
 import brunocapobiancocom.example.pizzeria.Payloads.DeliveryDTO;
@@ -53,6 +54,7 @@ public class DeliveryService
         int minuti=oraAttuale.getMinute();
         newdelivery.setOrario(LocalTime.of(ora,minuti));
         newdelivery.setDataDelivery(LocalDate.now());
+        newdelivery.setStato(STATO.INVIATO);
         System.out.println("arrivi qui");
         return deliveryDAO.save(newdelivery);
     }
