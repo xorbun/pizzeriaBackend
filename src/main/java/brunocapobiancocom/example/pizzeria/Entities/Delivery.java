@@ -26,11 +26,12 @@ public class Delivery
     private Users user;
     @ManyToOne
     @JoinColumn(name="idMenu",nullable = false)
-    private Menu menu;
+    private List<Menu> menuList;
     private int quantita;
     private double totale;
     private LocalTime orario;
-
+    @Enumerated(EnumType.STRING)
+    private STATO stato;
     private LocalDate dataDelivery;
 
 }
