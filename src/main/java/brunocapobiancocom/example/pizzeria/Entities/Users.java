@@ -31,6 +31,8 @@ public class Users implements UserDetails
     @NonNull
     private String nickname;
     @NonNull
+    private String address;
+    @NonNull
     private String email;
     @NonNull
     private String password;

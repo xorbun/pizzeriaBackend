@@ -46,6 +46,7 @@ public class AuthService
         newUser.setNome(body.nome());
         newUser.setCognome(body.cognome());
         newUser.setNickname(body.nickname());
+        newUser.setAddress(body.address());
         newUser.setEmail(body.email());
         newUser.setPassword(bcrypt.encode(body.password()));
         newUser.setRole(ROLE.USER);

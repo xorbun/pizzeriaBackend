@@ -41,6 +41,7 @@ public class UserService
         found.setNome(body.nome());
         found.setCognome(body.cognome());
         found.setNickname(body.nickname());
+        found.setAddress(body.address());
         found.setPassword(bcrypt.encode(body.password()));
         return usersDAO.save(found);
     }

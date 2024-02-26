@@ -47,7 +47,7 @@ public class Runner implements CommandLineRunner
     public void createAdmin()
     {
         String defaultPassword=bcrypt.encode("1234");
-        Users Bruno=new Users("bruno","capobianco","xorbun","bruno@mail.it",defaultPassword, ROLE.ADMIN);
+        Users Bruno=new Users("bruno","capobianco","xorbun","via solfatara 54","bruno@mail.it",defaultPassword, ROLE.ADMIN);
         usersDAO.save(Bruno);
     }
     public void createUsers()
@@ -57,12 +57,14 @@ public class Runner implements CommandLineRunner
             String name=faker.funnyName().name();
             String cognome=faker.name().lastName();
             String nickname= faker.name().username();
+            String address=faker.address().fullAddress();
             String email=faker.internet().emailAddress();
             String password=bcrypt.encode("1234");
             Users newUser=new Users();
             newUser.setNome(name);
             newUser.setCognome(cognome);
             newUser.setNickname(nickname);
+            newUser.setAddress(address);
             newUser.setEmail(email);
             newUser.setPassword(password);
             newUser.setRole(ROLE.USER);
