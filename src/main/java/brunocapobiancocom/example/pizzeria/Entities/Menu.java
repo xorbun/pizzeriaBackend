@@ -31,7 +31,15 @@ public class Menu
     @Enumerated(EnumType.STRING)
     private TYPE type;
 
+    private String priceId;
 
-
+    public Menu(@NonNull String descrizione, @NonNull String image, @NonNull double prezzo, @NonNull String ingredienti, @NonNull TYPE type, String priceId) {
+        this.descrizione = descrizione;
+        this.image = image;
+        this.prezzo = prezzo;
+        this.ingredienti = ingredienti;
+        this.type = type;
+        this.priceId = priceId;
+    }
 }
 
